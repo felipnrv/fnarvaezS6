@@ -29,7 +29,9 @@ namespace fnarvaezS6
                 parametros.Add("apellido", txtApellido.Text);
                 parametros.Add("edad", txtEdad.Text);
                 cliente.UploadValues("http://192.168.100.28/Moviles/post.php", "POST", parametros);
-                await DisplayAlert("Alerta", "Dato Ingresado correctamente", "Cerrar");
+                var mensaje = "Dato ingresado con exito";
+                DependencyService.Get<Mensaje>().longAlert(mensaje);
+                //await DisplayAlert("Alerta", "Dato Ingresado correctamente", "Cerrar");
             }
             catch (Exception ex)
             {
