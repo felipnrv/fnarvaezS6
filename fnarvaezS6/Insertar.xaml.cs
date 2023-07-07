@@ -31,7 +31,8 @@ namespace fnarvaezS6
                 cliente.UploadValues("http://192.168.100.28/Moviles/post.php", "POST", parametros);
                 var mensaje = "Dato ingresado con exito";
                 DependencyService.Get<Mensaje>().longAlert(mensaje);
-                //await DisplayAlert("Alerta", "Dato Ingresado correctamente", "Cerrar");
+                
+                await Navigation.PushAsync(new MainPage());
             }
             catch (Exception ex)
             {

@@ -35,6 +35,8 @@ namespace fnarvaezS6
                 parametros.Add("apellido", txtApellido.Text);
                 parametros.Add("edad", txtEdad.Text);
                 cliente.UploadValues("http://192.168.100.28/Moviles/post.php" + "?codigo=" + txtCodigo.Text+ "&nombre=" + txtNombre.Text + "&apellido=" + txtApellido.Text + "&edad=" + txtEdad.Text, "PUT", parametros);
+                var mensaje = "Dato actualizado con exito";
+                DependencyService.Get<Mensaje>().longAlert(mensaje);
                 await Navigation.PushAsync(new MainPage());
 
             }
@@ -52,6 +54,8 @@ namespace fnarvaezS6
             {
                 parametros.Add("codigo",txtCodigo.Text);
                 cliente.UploadValues("http://192.168.100.28/Moviles/post.php"+"?codigo="+txtCodigo.Text, "DELETE", parametros);
+                var mensaje = "Dato borrado con exito";
+                DependencyService.Get<Mensaje>().longAlert(mensaje);
                 await Navigation.PushAsync(new MainPage());
 
             }
